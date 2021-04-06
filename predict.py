@@ -52,13 +52,13 @@ def predict_img(net,
 def get_args():
     parser = argparse.ArgumentParser(description='Predict masks from input images',
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--model', '-m', default='MODEL.pth',
+    parser.add_argument('--model', '-m', default='model/model.pth',
                         metavar='FILE',
                         help="Specify the file in which the model is stored")
-    parser.add_argument('--input', '-i', metavar='INPUT', nargs='+',
-                        help='filenames of input images', required=True)
+    parser.add_argument('--input', '-i',  default='data/unet_input/', metavar='INPUT', nargs='+',
+                        help='filenames of input images')
 
-    parser.add_argument('--output', '-o', metavar='INPUT', nargs='+',
+    parser.add_argument('--output', '-o', default='data/unet_output/', metavar='INPUT', nargs='+',
                         help='Filenames of ouput images')
     parser.add_argument('--viz', '-v', action='store_true',
                         help="Visualize the images as they are processed",
